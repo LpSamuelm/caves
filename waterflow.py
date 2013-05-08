@@ -20,9 +20,6 @@ watertiles = int(cave[0])
 
 cave = cave[2:-1]
 cave = [list(x) for x in cave]
-
-for row in cave: ## Delete later
-    print row
     
 cavecols = []
 for t in range(0, len(cave[0])):
@@ -90,3 +87,5 @@ depthstring = ' '.join([str(x) for x in measureDepth(cavecols)])
 outfile = open('output.txt', 'w')
 outfile.write(cavestring + '\n' + depthstring)
 outfile.close()
+
+Print "Successful!"
