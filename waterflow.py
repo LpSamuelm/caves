@@ -12,14 +12,15 @@ while not argfile:
         argfile = af
     except IOError:
         af = raw_input("That is not a valid file.\nWhat file do you want to use for simulation? >")
-    
+ 
+
 cave = infile.read()
 infile.close()
 cave = cave.split('\n')
 watertiles = int(cave[0])
 
-cave = cave[2:-1]
-cave = [list(x) for x in cave]
+cave = cave[2:]
+cave = [list(x) for x in cave if x.strip()]
     
 cavecols = []
 for t in range(0, len(cave[0])):
@@ -84,8 +85,20 @@ def measureDepth(cols):
 cavestring = '\n'.join([''.join(x) for x in cave])
 depthstring = ' '.join([str(x) for x in measureDepth(cavecols)])
 
-outfile = open('output.txt', 'w')
-outfile.write(cavestring + '\n' + depthstring)
-outfile.close()
+outfile = False
 
-Print "Successful!"
+try:
+    outfile = argv[2]
+except IndexError:
+    of = raw_input("What file do you want to output to? >")
+while not outfile:
+    while not of.strip():
+        of = raw_input("That is not a valid file.\nWhat file do you want to output to? >")
+    try:
+        output = open(of, 'w')
+        outfile = of
+    except IOError:
+        of = raw_input("That is not a valid file.\nWhat file do you want to output to? >")
+
+output.write(cavestring + '\n' + depthstring)
+output.close()
