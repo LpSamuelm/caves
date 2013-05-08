@@ -1,7 +1,7 @@
 ##What it does
-`waterflow.py` simulates water flowing (only from left to right) in a cave, and was made for an excercise on Puzzlenode - see [here](http://www.puzzlenode.com/puzzles/11-hitting-rock-bottom).
+`waterflow.py` simulates water flowing (only from left to right) in a cave, and was made for an exercise on Puzzlenode - see [here](http://www.puzzlenode.com/puzzles/11-hitting-rock-bottom).
 
-`waterflow-excerciseonly.py` does the same thing, except optimized for the excercise and not as flexible.
+`waterflow-exerciseonly.py` does the same thing, except optimized for the exercise and not as flexible.
 
 ##How to use
 To launch, either run the script with a file and an output file as the arguments, or type in your filename choices at the prompt that appears at the start.
