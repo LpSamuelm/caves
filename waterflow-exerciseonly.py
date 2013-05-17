@@ -56,12 +56,11 @@ def measureDepth(cols):
     depths = []
     for col in cols:
         coldepth = 0
-        for symbol in col:
-            if symbol == '~': ## Every ~ adds one depth unit
-                coldepth += 1
-            elif symbol == ' ' and coldepth > 0: ## Sometimes water isn't done filling in a column
+        if '~' in col:
+            if ' ' in col[::-1][:col[::-1].index('~')]: ## Sometimes water isn't done filling in a column
                 coldepth = '~'
-                break
+            else:
+                coldepth = col.count('~') ## Every ~ adds one depth unit
         depths.append(coldepth) ## Returns a list of depths, from left to right
     return depths
 
